@@ -1,13 +1,12 @@
 <script setup>
-
+import MainNav from './components/MainNav.vue';
 </script>
 
 <template>
-  <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/about">About</RouterLink>
-  <RouterView></RouterView>
+  <MainNav></MainNav>
+  <div class="container">
+    <RouterView></RouterView>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
