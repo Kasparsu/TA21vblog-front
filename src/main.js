@@ -8,11 +8,12 @@ import '@ntohq/buefy-next/dist/buefy.css'
 import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Chuck from './pages/Chuck.vue';
-
+import Login from './pages/Login.vue';
 const routes = [
     { path: '/', component: Home, name: 'Home' },
     { path: '/about', component: About, name: 'About' },
     { path: '/chuck', component: Chuck, name: 'Chuck Norris' },
+    { path: '/login', component: Login, name: 'Login' },
 ];
 
 const router = createRouter({

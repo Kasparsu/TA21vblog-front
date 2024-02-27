@@ -2,7 +2,8 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import { DateTime } from "luxon";
-
+axios.defaults.withCredentials = true;
+axios.defaults.withXSRFToken = true;
 let posts = ref([]);
 axios.get('http://127.0.0.1:8000/api/public').then(response => {
     console.log(response.data);
@@ -40,7 +41,7 @@ axios.get('http://127.0.0.1:8000/api/public').then(response => {
                         {{ post.snippet }}
                         <p class="has-text-weight-semibold has-text-grey">{{ post.user.name }}</p>
                         <p class="has-text-weight-semibold has-text-grey">
-                            {{ DateTime.fromISO(post.created_at) }}
+                            {{ DateTime.fromISO(post.created_at).toRelative() }}
                         </p>
                     </div>
                 </div>
