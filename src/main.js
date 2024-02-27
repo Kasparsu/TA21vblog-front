@@ -22,6 +22,8 @@ const router = createRouter({
     routes, // short for `routes: routes`
 });
 
+
+
 const app = createApp(App);
 app.use(router);
 app.use(Buefy);

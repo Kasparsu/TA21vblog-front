@@ -1,26 +1,25 @@
 <script setup>
-import axios from 'axios';
+import api from '../axios.js';
 import { ref } from 'vue';
 let email = ref('');
 let password = ref('');
-axios.defaults.withCredentials = true;
-axios.defaults.withXSRFToken = true;
+
 
 
 // Login...
-axios.get('http://localhost:8000/api/user').then(response => {
+api.get('/api/user').then(response => {
                 // Login...
 });
 
 function login() {
-    axios.get('http://localhost:8000/sanctum/csrf-cookie').then(response => {
-        axios.post('http://localhost:8000/api/login', {
+    api.get('/sanctum/csrf-cookie').then(response => {
+        api.post('/api/login', {
             email: email.value,
             password: password.value,
             remember: true
         }).then(response => {
             console.log(response);
-            axios.get('http://localhost:8000/api/user').then(response => {
+            api.get('/api/user').then(response => {
                 // Login...
             });
         });
