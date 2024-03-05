@@ -1,6 +1,8 @@
 <script setup>
 import MainNav from './components/MainNav.vue';
-
+import { useAuthStore } from './stores/auth';
+let auth = useAuthStore();
+auth.getUser();
 </script>
 
 <template>

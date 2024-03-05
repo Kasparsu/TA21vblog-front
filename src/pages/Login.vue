@@ -1,15 +1,17 @@
 <script setup>
 import api from '../axios.js';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '../stores/auth';
 let email = ref('');
 let password = ref('');
+let router = useRouter();
+let auth = useAuthStore();
 
-
-
-// Login...
-api.get('/api/user').then(response => {
-                // Login...
-});
+// // Login...
+// api.get('/api/user').then(response => {
+//                 // Login...
+// });
 
 function login() {
     api.get('/sanctum/csrf-cookie').then(response => {
@@ -19,9 +21,8 @@ function login() {
             remember: true
         }).then(response => {
             console.log(response);
-            api.get('/api/user').then(response => {
-                // Login...
-            });
+            auth.getUser();
+            router.push('/');
         });
     });
 }
