@@ -12,6 +12,11 @@ export const useAuthStore = defineStore('auth', {
             api.get('/api/user').then(response => {
                 this.user = response.data;
             });
+        },
+        logout(){
+            api.post('/api/logout').then(response => {
+                this.user = null;
+            });
         }
     }
 });

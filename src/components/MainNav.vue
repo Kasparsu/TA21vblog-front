@@ -23,9 +23,9 @@ let auth = useAuthStore();
         <template #end>
             <b-navbar-item tag="div" v-if="!auth.user">
                 <div class="buttons">
-                    <a class="button is-primary">
+                    <RouterLink class="button is-primary" to="/register">
                         <strong>Sign up</strong>
-                    </a>
+                    </RouterLink>
                     <RouterLink class="button is-light" to="/login">
                         Log in
                     </RouterLink>
@@ -35,7 +35,7 @@ let auth = useAuthStore();
                 <b-navbar-item href="#">
                     Profile
                 </b-navbar-item>
-                <b-navbar-item href="#">
+                <b-navbar-item @click="auth.logout()">
                     Logout
                 </b-navbar-item>
             </b-navbar-dropdown>

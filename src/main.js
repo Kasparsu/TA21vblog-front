@@ -10,11 +10,13 @@ import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Chuck from './pages/Chuck.vue';
 import Login from './pages/Login.vue';
+import Register from './pages/Register.vue';
 const routes = [
     { path: '/', component: Home, name: 'Home' },
     { path: '/about', component: About, name: 'About' },
     { path: '/chuck', component: Chuck, name: 'Chuck Norris' },
     { path: '/login', component: Login, name: 'Login',  meta: { auto: false } },
+    { path: '/register', component: Register, name: 'Register',  meta: { auto: false } },
 ];
 
 const router = createRouter({
@@ -28,6 +30,8 @@ const pinia = createPinia();
 
 const app = createApp(App);
 app.use(router);
-app.use(Buefy);
+app.use(Buefy, {
+    defaultIconPack: 'fas',
+});
 app.use(pinia);
 app.mount('#app');
