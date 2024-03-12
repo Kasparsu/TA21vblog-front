@@ -11,10 +11,12 @@ import About from './pages/About.vue';
 import Chuck from './pages/Chuck.vue';
 import Login from './pages/Login.vue';
 import Register from './pages/Register.vue';
+import Chat from './pages/Chat.vue';
 const routes = [
     { path: '/', component: Home, name: 'Home' },
     { path: '/about', component: About, name: 'About' },
     { path: '/chuck', component: Chuck, name: 'Chuck Norris' },
+    { path: '/chat', component: Chat, name: 'Chat' },
     { path: '/login', component: Login, name: 'Login',  meta: { auto: false } },
     { path: '/register', component: Register, name: 'Register',  meta: { auto: false } },
 ];
