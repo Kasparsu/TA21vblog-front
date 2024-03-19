@@ -3,10 +3,10 @@ import { ref } from 'vue';
 import { useChatStore } from '../stores/chat';
 let message = ref('');
 let chat = useChatStore();
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 chat.getMessages();
-setInterval(() => {
-    chat.getMessages();
-}, 10000);
+chat.websocket();
+
 function send(){
     if(message.value.trim() !== ''){
         chat.sendMessage(message.value.trim());
