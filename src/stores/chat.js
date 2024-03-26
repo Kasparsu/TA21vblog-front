@@ -23,7 +23,9 @@ export const useChatStore = defineStore('chat', {
             });
         },
         websocket(){
-
+            if(this.ws){
+                return;
+            }
             // Create WebSocket connection.
             this.ws = new WebSocket("ws://localhost:8080");
 
